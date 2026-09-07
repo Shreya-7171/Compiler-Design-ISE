@@ -9,7 +9,7 @@ sys.path.insert(
 )
 
 
-from rcl_token import TokenType, Token
+from .rcl_token import TokenType, Token
 
 # Keywords supported by RCL
 KEYWORDS = {
@@ -90,7 +90,7 @@ class Lexer:
 
         return Token(
             TokenType.NUMBER,
-            int(number),
+            number,
             self.line,
             start_column
         )
