@@ -89,10 +89,10 @@ class Lexer:
             self.advance()
 
         return Token(
-            TokenType.NUMBER,
-            number,
-            self.line,
-            start_column
+           TokenType.NUMBER,
+           int(number),
+           self.line,
+           start_column
         )
 
     # Convert the complete source code into tokens
