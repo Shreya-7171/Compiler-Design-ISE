@@ -1,7 +1,3 @@
 __pycache__/
 *.pyc
-<<<<<<< HEAD
-
-=======
-
->>>>>>> origin/my-feature-branch
+.env
