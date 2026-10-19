@@ -1,11 +1,14 @@
 import os
+from dotenv import load_dotenv
+
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
-from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class AIOptimizer:
+
     def __init__(self):
         self.llm = ChatGroq(
             api_key=os.getenv("GROQ_API_KEY"),
@@ -54,4 +57,9 @@ If no optimization is possible, clearly say:
             "tac": tac_text
         })
 
-        return response.content
+        content = response.content
+
+        if not content:
+            return "No further optimization suggested."
+
+        return content
