@@ -13,23 +13,24 @@ DROP
 END
 """
 
-    # Phase 4: TAC
+    # Phase 4: TAC generation
     tac = generate_tac_from_source(source)
 
-    # Phase 5: Optimization
+    # Phase 6: Code optimization
     pipeline = OptimizationPipeline()
     optimized_tac, _ = pipeline.run(tac)
 
-    # Phase 7: Target Code Generation
+    # Phase 7: Target code generation
     generator = TargetCodeGenerator()
     target_code = generator.generate(optimized_tac)
 
     assert target_code == [
-        "START",
-        "MOVE FORWARD 10",
-        "TURN LEFT",
+        "START:",
+        "MOV R1, 10",
+        "MOVE_FORWARD R1",
+        "TURN_LEFT",
         "PICK",
         "WAIT 4",
         "DROP",
-        "END",
+        "HALT",
     ]
